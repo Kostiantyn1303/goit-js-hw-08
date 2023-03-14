@@ -26,3 +26,11 @@ function handleInputFormValue() {
   const inputValue = JSON.stringify(formData);
   localStorage.setItem(STORAGE_KEY, inputValue);
 }
+populateForm();
+function populateForm() {
+  const savedForm = JSON.parse(localStorage.getItem(STORAGE_KEY));
+  if (savedForm) {
+    formEl.elements.email.value = savedForm.email;
+    formEl.elements.message.value = savedForm.message;
+  }
+}
